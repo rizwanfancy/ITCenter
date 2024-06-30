@@ -1,0 +1,23 @@
+
+#container,body{
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    align-items: center;
+}
+
+#one-way,#two-way,#prop-binding{
+    padding: 0;
+    margin: 0;
+    text-align: center; 
+    margin-left: 20px;
+    width: 400px;
+    height: 500px; 
+    background-color: white;  
+}
+body{
+    // background-color:#FAFFAF;
+    background-color: rgb(49, 49, 49);
+    height: 550px;
+    width: 1300px;
+}

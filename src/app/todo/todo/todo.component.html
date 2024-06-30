@@ -1,0 +1,15 @@
+<body>
+<div id="container">
+  <div id="todoList">
+    <h1 id="heading" >To Do List</h1>
+    <input id="textbox"  type="text" [(ngModel)]="str" style="width:50% ;margin-left: 7.5%;"/>
+    <input type="button" (click)="Add()" value="Add" >
+    <input type="button" (click)="Remove()" value="Remove Last" >
+    <div class="list" *ngFor="let item of todo_Items">
+        <ul>
+        <li class="listItems">{{item}}</li>
+        </ul>
+    </div>
+  </div>
+</div>
+</body>

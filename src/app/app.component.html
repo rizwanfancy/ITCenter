@@ -1,21 +1,17 @@
-<h2>Property Data Binding</h2>
-<input [type]=inputType [id]=Id [(ngModel)]="caption" />
-<input type="button" (click)="changeInputType()" value="Click Me" />
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/todo" routerLinkActive="active">Todo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<select [(ngModel)]="City">
-  <option value="">Select</option>
-  <option value="Karachi">Karachi</option>
-  <option value="Islamabad">Islamabad</option>
-  <option value="Lahore">Lahore</option>
-  <option value="Quetta">Quetta</option>
-</select>
-<div *ngFor="let item of items">
-  {{item}}
-</div>
-<h2>One Way data binding using interpolation</h2>
-<p>{{ContactInfo}}</p>
-<h3>{{caption}}</h3>
-<h3>{{Location}}</h3>
-<h3>{{City}}</h3>
-
-<app-todo></app-todo>
+<router-outlet></router-outlet>

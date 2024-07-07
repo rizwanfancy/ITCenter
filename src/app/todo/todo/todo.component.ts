@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ITodo, TodoListComponent } from '../todo-list/todo-list.component';
+import { TodoServiceService } from '../../@Services/todo-service.service';
 
 @Component({
   selector: 'app-todo',
@@ -10,15 +11,30 @@ import { ITodo, TodoListComponent } from '../todo-list/todo-list.component';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
+  constructor(private todoService: TodoServiceService) {
+
+  }
+
+  async ngOnInit() {
+    let values = await this.todoService.GetTodos()
+    console.log(values)
+  }
   task: string = ''
   myTodo: ITodo | undefined
+  currentRecord: ITodo | undefined
   addTodo() {
     if (this.task) {
-      this.myTodo = {
-        id: 'myId',
-        title: this.task,
-        completed: false,
+      if (!this.currentRecord) {
+        this.myTodo = {
+          id: this.generateRandomString(5),
+          title: this.task,
+          completed: false,
+        }
+      } else {
+        this.currentRecord = { ...this.currentRecord, title: this.task }
+        this.myTodo = this.currentRecord
+        this.currentRecord = undefined
       }
 
       this.task = ''
@@ -34,5 +50,10 @@ export class TodoComponent {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  }
+
+  TodoEdit(item: ITodo) {
+    this.currentRecord = item
+    this.task = item.title
   }
 }

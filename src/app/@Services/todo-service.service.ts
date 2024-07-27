@@ -6,12 +6,5 @@ import { Injectable } from '@angular/core';
 })
 export class TodoServiceService {
 
-  constructor(private client: HttpClient) {
 
-
-  }
-
-  public async GetTodos() {
-    return await this.client.get('https://jsonplaceholder.typicode.com/todos')
-  }
 }

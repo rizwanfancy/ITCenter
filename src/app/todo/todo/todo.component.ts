@@ -12,13 +12,11 @@ import { TodoServiceService } from '../../@Services/todo-service.service';
   styleUrl: './todo.component.scss'
 })
 export class TodoComponent implements OnInit {
-  constructor(private todoService: TodoServiceService) {
+  constructor() {
 
   }
 
   async ngOnInit() {
-    let values = await this.todoService.GetTodos()
-    console.log(values)
   }
   task: string = ''
   myTodo: ITodo | undefined

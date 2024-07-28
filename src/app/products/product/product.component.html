@@ -1,6 +1,10 @@
 <div class="product-container">
   <div class="product-box">
-    <h2>Product Amount : {{productAmount}}</h2>
-    <h2>Product Name : {{productName}}</h2>
+    @for (item of photos; track $index) {
+      <h2>Title : {{item.title}}</h2>
+      <img  [src]="item.url" alt="'no image'" />
+      <br>
+      }
+   
   </div>
 </div>

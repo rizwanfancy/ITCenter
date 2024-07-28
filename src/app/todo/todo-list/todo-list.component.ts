@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -9,12 +10,21 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss'
 })
-export class TodoListComponent implements OnChanges {
+export class TodoListComponent implements OnChanges, OnInit {
 
   @Input() todoItem: ITodo | undefined
   @Output() EditRecord = new EventEmitter<ITodo>
   noRecords: string = 'No Record found...'
   todos: Array<ITodo> = []
+
+  constructor(private client: HttpClient) {
+
+  }
+  ngOnInit(): void {
+    this.client.get('https://jsonplaceholder.typicode.com/todos').subscribe(x => {
+      this.todos = x as any
+    })
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['todoItem'].currentValue) {

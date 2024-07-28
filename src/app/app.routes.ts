@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
-import { TodoComponent } from './todo/todo/todo.component';
-import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -12,21 +11,24 @@ export const routes: Routes = [
   },
   {
     path: 'todo',
-    component: TodoComponent,
+    loadComponent: () => import('./todo/todo/todo.component').then(x => x.TodoComponent)
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    loadComponent: () => import('./contact/contact.component').then(o => o.ContactComponent),
     children: [
       {
         path: 'list',
         component: ContactListComponent
       }
     ]
-
   },
   {
     path: 'product-list',
-    component: ProductListComponent
+    loadComponent: () => import('./products/product/product.component').then(i => i.ProductComponent)
+  },
+  {
+    path: '**',
+    component: NotfoundComponent
   }
 ];

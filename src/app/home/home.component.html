@@ -46,7 +46,23 @@
       }
     </div>
     <div class="col-sm-3">
-
+      <p>Text Based Pipes</p>
+      <input type="text" [(ngModel)]="title" name="title" id="title">
+      <br>
+      LowerCasePipe -> {{title | lowercase}}
+      <br>
+      UpperCasePipe -> {{title | uppercase}}
+      <br>
+      TitleCase -> {{caption | titlecase}}
+      <br>
+      <p>Date Based Pipes</p>
+      DatePipe - > {{currentDate | date: 'dd-MMM-yyyy'}}
+      <p>Number based Pipes</p>
+      <input type="text" [(ngModel)]="value" name="value" id="value">
+      <br>
+      CurrencyPipe -> {{value | currency: '$'}}
+      <br>
+      DecimalPipe -> {{value | number : '1.4'}}
     </div>
   </div>
 </div>

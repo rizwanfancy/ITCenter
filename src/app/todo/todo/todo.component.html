@@ -1,5 +1,6 @@
 <div class="form-container">
   <div class="input-group mb-3">
+    <input type="checkbox" class="col-1" [(ngModel)]="comp" value="Completed">
     <input type="text" id="todoTextBox" class="form-control" placeholder="Write your Todo Task" aria-label="Write your Todo Task"
       aria-describedby="button-addon2" [(ngModel)]="task">
     <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addTodo()">Add Todo</button>

@@ -1,0 +1,72 @@
+<div class="container-fluid mt-3">
+  <h1>Two Unequal Responsive Columns</h1>
+  <p>Resize the browser window to see the effect.</p>
+  <p>The columns will automatically stack on top of each other when the screen is less than 576px wide.</p>
+  <div class="row">
+    <div class="col-sm-3" style="background-color: aqua;">
+      <p>If else working</p>
+      @if (showDiv) {
+      <div style="background-color: red;">
+        Div is Showing
+      </div>
+      } @else {
+      <div style="background-color: orange;">
+        Div is not Showing
+      </div>
+      }
+      <button (click)="showHide()"> Toggle </button>
+    </div>
+    <div class="col-sm-3">
+      <p>For loop</p>
+      @for (item of students; track $index) {
+      jsonFormatedValue -> {{item | jsonFormat}}
+      <br>
+      value -> {{item.Id}}
+      index -> {{$index + 1}}
+      <br>
+      }
+    </div>
+    <div class="col-sm-3">
+      <p> Switch Case working</p>
+      <input type="text" [(ngModel)]="dayName" name="dayName" id="dayName">
+      @switch (dayName) {
+      @case ('1') {
+      <div>Monday</div>
+      }
+      @case ('2') {
+      <div>Tuesday</div>
+      }
+      @case ('3') {
+      <div>Wed</div>
+      }
+      @case ('4') {
+      <div>Thurs</div>
+      }
+      @default {
+      <div> Invalid Day Number</div>
+      }
+      }
+    </div>
+    <div class="col-sm-3">
+      <p>Text Based Pipes</p>
+      <input type="text" [(ngModel)]="title" name="title" id="title">
+      <br>
+      LowerCasePipe -> {{title | lowercase}}
+      <br>
+      UpperCasePipe -> {{title | uppercase}}
+      <br>
+      TitleCase -> {{caption | titlecase}}
+      <br>
+      Custom Pipe -> {{title | stringpipe}}
+      <br>
+      <p>Date Based Pipes</p>
+      DatePipe - > {{currentDate | date: 'dd-MMM-yyyy'}}
+      <p>Number based Pipes</p>
+      <input type="text" [(ngModel)]="value" name="value" id="value">
+      <br>
+      CurrencyPipe -> {{value | currency: '$'}}
+      <br>
+      DecimalPipe -> {{value | number : '1.4'}}
+    </div>
+  </div>
+</div>

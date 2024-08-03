@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.product-container {
+  display: flex;
+  justify-content: space-around;
+  /* Adjust this as needed (space-between, space-evenly, etc.) */
+  flex-wrap: wrap;
+  /* Wrap to the next line if there are too many products */
+  padding: 20px;
+}
+
+.product-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-box h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-box p {
+  color: #555;
+}

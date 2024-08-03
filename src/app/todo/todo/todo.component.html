@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body>
 <div id="container">
   <div id="todoList">
@@ -13,3 +14,16 @@
   </div>
 </div>
 </body>
+=======
+<div class="form-container">
+  <div class="input-group mb-3">
+    <input type="text" id="todoTextBox" class="form-control" placeholder="Write your Todo Task" aria-label="Write your Todo Task"
+      aria-describedby="button-addon2" [(ngModel)]="task">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addTodo()">Add Todo</button>
+  </div>
+</div>
+
+
+
+<app-todo-list [todoItem]="myTodo" (EditRecord)="TodoEdit($event)"></app-todo-list>
+>>>>>>> be9525bc631699d591d4e26315e8a6b4898ef6af

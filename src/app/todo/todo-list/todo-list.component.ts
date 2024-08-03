@@ -28,11 +28,19 @@ export class TodoListComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['todoItem'].currentValue) {
-      let value = changes['todoItem'].currentValue
+      let value: ITodo = changes['todoItem'].currentValue
       if (this.todos.filter(o => o.id === value.id).length === 0) {
-        this.todos.push(value)
+        this.todos.push(value);
+        this.client.post('https://jsonplaceholder.typicode.com/todos', value).subscribe(
+          res => {console.log(res);},
+        );
       } else {
+        this.client.put(`https://jsonplaceholder.typicode.com/todos/${value.id}`, value).subscribe(
+          res => {
+            console.log(res);
+          })
         this.todos.filter(o => o.id === value.id)[0].title = value.title
+        this.todos.filter(o => o.id === value.id)[0].completed = value.completed
       }
     }
   }
@@ -44,7 +52,7 @@ export class TodoListComponent implements OnChanges, OnInit {
 }
 
 export interface ITodo {
-  id: string,
+  id: string | number,
   title: string,
   completed: boolean
 }

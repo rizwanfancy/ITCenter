@@ -1,17 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'stringpipe',
+  name: 'jsonFormat',
   standalone: true
 })
-export class StringpipePipe implements PipeTransform {
+export class JsonFormatPipe implements PipeTransform {
+
   transform(value: unknown, ...args: unknown[]): unknown {
-    if (value) {
-      return 'Rizwan ' + value
-    }
-    return null;
+    return JSON.stringify(value);
   }
-
-
 
 }

@@ -28,6 +28,14 @@ export const routes: Routes = [
     loadComponent: () => import('./products/product/product.component').then(i => i.ProductComponent)
   },
   {
+    path: 'template-form',
+    loadComponent: () => import('./template-from/template-from.component').then(i => i.TemplateFromComponent)
+  },
+  {
+    path: 'reactive-form',
+    loadComponent: () => import('./reactive-form/reactive-form.component').then(i => i.ReactiveFormComponent)
+  },
+  {
     path: '**',
     component: NotfoundComponent
   }

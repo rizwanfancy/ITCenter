@@ -21,18 +21,28 @@ export class TodoListComponent implements OnChanges, OnInit {
 
   }
   ngOnInit(): void {
-    this.client.get('https://jsonplaceholder.typicode.com/todos').subscribe(x => {
+    this.client.get('https://jsonplaceholder.typicode.com/posts').subscribe(x => {
       this.todos = x as any
     })
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  async ngOnChanges(changes: SimpleChanges) {
     if (changes['todoItem'].currentValue) {
       let value = changes['todoItem'].currentValue
       if (this.todos.filter(o => o.id === value.id).length === 0) {
         this.todos.push(value)
       } else {
         this.todos.filter(o => o.id === value.id)[0].title = value.title
+        let todo = this.todos.filter(o => o.id === value.id)[0] as any
+        todo.body = todo.title
+        let str = JSON.stringify(todo)
+        this.client.put(`https://jsonplaceholder.typicode.com/posts/${value.id}`, str, {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }).subscribe(x => {
+          alert('Record updated...')
+        })
       }
     }
   }

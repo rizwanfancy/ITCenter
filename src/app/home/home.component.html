@@ -16,10 +16,12 @@
       }
       <button (click)="showHide()"> Toggle </button>
     </div>
-    <div class="col-sm-3" style="background-color: blue;">
+    <div class="col-sm-3">
       <p>For loop</p>
       @for (item of students; track $index) {
-      Item -> {{item}}
+      jsonFormatedValue -> {{item | jsonFormat}}
+      <br>
+      value -> {{item.Id}}
       index -> {{$index + 1}}
       <br>
       }
@@ -54,6 +56,8 @@
       UpperCasePipe -> {{title | uppercase}}
       <br>
       TitleCase -> {{caption | titlecase}}
+      <br>
+      Custom Pipe -> {{title | stringpipe}}
       <br>
       <p>Date Based Pipes</p>
       DatePipe - > {{currentDate | date: 'dd-MMM-yyyy'}}

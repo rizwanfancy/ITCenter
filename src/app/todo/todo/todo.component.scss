@@ -1,67 +1,67 @@
-*{
-    // color: white;
-}
-#container,body{
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    align-items: center;
-}
+// *{
+//     // color: white;
+// }
+// #container,body{
+//     padding: 0;
+//     margin: 0;
+//     display: flex; 
+//     align-items: center;
+// }
 
 
-body{
-    padding: 0;
-    margin: 0;
-    // background-color:#ffdfaf;
-    background-color: lightskyblue;
-    height: 550px;
-    width: 1300px;
-}
-#todoList{
-    padding: 0;
-    margin: 0; 
-    margin-left: 20px;
-    width: 400px;
-    height: 500px;   
-    border: 2px solid blue;
-    border-radius: 10px;
-    background-color: white;
-}
-.list{
-    padding-left: 20px;
-    background-color: blue;
-    border-radius: 25px;
-}
-.listItems{
-    list-style-type: "✔ ";
-    color: white;
-    height: 30px;
-    font-family: Verdana;
-    padding-top: 5px;
-}
-#heading{
-    background-color: blue;
-    width: 240px;
-    height: 40px;
-    margin-left: 20%;
-    text-align: center;
-    border-radius: 20px;
-    color: white;
-}
-#textbox{
-    background-color: rgb(200, 200, 248);
-    border: 2px solid blue;
-    color: blue;
-}
-input{
-    color: black;
-    background-color: blue;
-    color: white;
-    border: 2px solid blue;
-    margin-left: 2px;
-    border-radius: 20px;
-    font-family: verdana;
-}
-input:hover{
-    background-color: rgb(1, 1, 165);
-}
+// body{
+//     padding: 0;
+//     margin: 0;
+//     // background-colaor:#ffdfaf;
+//     background-color: lightskyblue;
+//     height: 550px;
+//     width: 1300px;
+// }
+// #todoList{
+//     padding: 0;
+//     margin: 0; 
+//     margin-left: 20px;
+//     width: 400px;
+//     height: 500px;   
+//     border: 2px solid blue;
+//     border-radius: 10px;
+//     background-color: white;
+// }
+// .list{
+//     padding-left: 20px;
+//     background-color: blue;
+//     border-radius: 25px;
+// }
+// .listItems{
+//     list-style-type: "✔ ";
+//     color: white;
+//     height: 30px;
+//     font-family: Verdana;
+//     padding-top: 5px;
+// }
+// #heading{
+//     background-color: blue;
+//     width: 240px;
+//     height: 40px;
+//     margin-left: 20%;
+//     text-align: center;
+//     border-radius: 20px;
+//     color: white;
+// }
+// #textbox{
+//     background-color: rgb(200, 200, 248);
+//     border: 2px solid blue;
+//     color: blue;
+// }
+// input{
+//     color: black;
+//     background-color: blue;
+//     color: white;
+//     border: 2px solid blue;
+//     margin-left: 2px;
+//     border-radius: 20px;
+//     font-family: verdana;
+// }
+// input:hover{
+//     background-color: rgb(1, 1, 165);
+// }

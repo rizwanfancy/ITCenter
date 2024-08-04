@@ -1,0 +1,106 @@
+<div class="form-container">
+    <form class="row g-3" #form="ngForm">
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" #emailControl="ngModel" name="email" required class="form-control" id="inputEmail4"
+                [(ngModel)]="contactInfoObj.email">
+            <div class="text-danger">
+                @if ((emailControl.touched || emailControl.invalid) && emailControl.errors?.['required']) {
+                <span>Email is required</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" name="password" #password="ngModel" required minlength="3"
+                [(ngModel)]="contactInfoObj.password" class="form-control" id="inputPassword4">
+            <div class="text-danger">
+                @if ((password.touched || password.invalid) && password.errors?.['required']) {
+                <span>Password is required</span>
+                } @else if ((password.touched || password.invalid) && password.errors?.['minlength']) {
+                <span>Password should be greater than 3 characters</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="inputCountry" class="form-label">Country</label>
+            <input #countryControl="ngModel" name="country" [(ngModel)]="contactInfoObj.country" required type="text"
+                class="form-control" id="inputCountry">
+            @if((countryControl.touched || countryControl.invalid) && countryControl.errors?.['required']){
+            <span class="text-danger">Country Field is empty.</span>
+            }
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">City</label>
+            <select [(ngModel)]="contactInfoObj.city" #city="ngModel" name="city" required id="inputState"
+                class="form-select">
+                <option value="" selected>Choose...</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Islamabad">Islamabad</option>
+            </select>
+            @if((city.touched || city.invalid) && city.errors?.['required']){
+            <span class="text-danger">Required.</span>
+            }
+        </div>
+
+        <div class="col-12">
+            <!-- <button (click)="onSubmit()" [disabled]="form.invalid" class="btn btn-primary">Submit</button> -->
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Confirm the Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Email: {{contactInfoObj.email}} <br>
+                Password: {{contactInfoObj.password}} <br>
+                Country: {{contactInfoObj.country}} <br>
+                City: {{contactInfoObj.city}} <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="confirm()">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+@if(list.length>0){
+
+
+<table class="table table_component" role="region" tabindex="0">
+
+    <thead>
+        <tr>
+            <th scope="col">Sr. No</th>
+            <th scope="col">Email</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (users of list; track $index) {
+        <tr>
+
+            <th scope="row">{{$index+1}}</th>
+            <td>{{users.email}}</td>
+            <td>{{users.country}}</td>
+            <td>{{users.city}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

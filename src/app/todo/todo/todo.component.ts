@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-@Component({
-  selector: 'app-todo',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule],
-  templateUrl: './todo.component.html',
-  styleUrl: './todo.component.scss'
-})
-export class TodoComponent {
-  str:string='';
-  todo_Items:string[]=["Atif","Arif"];
-  Add(){
-    this.todo_Items.push(this.str);
-  }
-  Remove(){
-    this.todo_Items.pop();
-=======
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -74,6 +53,5 @@ export class TodoComponent implements OnInit {
   TodoEdit(item: ITodo) {
     this.currentRecord = item
     this.task = item.title
->>>>>>> be9525bc631699d591d4e26315e8a6b4898ef6af
   }
 }

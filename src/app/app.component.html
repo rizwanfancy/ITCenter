@@ -1,14 +1,12 @@
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD
 <body>
   <header></header>
   <main>
     <div id="container">
-      <!-- style="background-color: #ffc7ed" -->
       <div id="one-way">
         <h1>One way Data Binding</h1>
         <p>x:{{ x }}<br />y:{{ y }}<br />add(x,y)= {{ add(x, y) }}</p>
       </div>
-      <!-- style="background-color: #65c8cf" -->
       <div id="prop-binding" >
         <h1>Property Data Binding</h1>
         <input [type]="inputType" [id]="id_no" />
@@ -18,7 +16,6 @@
           (click)="changeInputType()"
         />
       </div>
-      <!-- style="background-color: #fff8db" -->
       <div id="two-way" >
       <h1>Two Way Binding</h1>
         <h2 style="display: inline-block; padding-right: 15px">Select City</h2>
@@ -70,4 +67,36 @@
 </nav>
 
 <router-outlet></router-outlet>
->>>>>>> be9525bc631699d591d4e26315e8a6b4898ef6af
+>>>>>>> be9525bc631699d591d4e26315e8a6b4898ef6af -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/todo">Todo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/product-list">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/list">Contact List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/template-form">Template Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reactive-form">Reactive Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/form">Form</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

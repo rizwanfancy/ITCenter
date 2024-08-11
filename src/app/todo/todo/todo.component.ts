@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ITodo, TodoListComponent } from '../todo-list/todo-list.component';
-import { TodoServiceService } from '../../@Services/todo-service.service';
 
 @Component({
   selector: 'app-todo',

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,8 +16,8 @@ export class TodoListComponent implements OnChanges, OnInit {
   @Output() EditRecord = new EventEmitter<ITodo>
   noRecords: string = 'No Record found...'
   todos: Array<ITodo> = []
-
-  constructor(private client: HttpClient) {
+  private client = inject(HttpClient)
+  constructor() {
 
   }
   ngOnInit(): void {

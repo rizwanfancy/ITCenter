@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -12,10 +12,21 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private router: Router) {
 
+  }
+  ngOnInit(): void {
+    console.log(`this is ngOnInit`)
+  }
+
+  ngAfterViewInit(): void {
+    console.log(`this is ngAfterViewInit`)
+  }
+
+  ngOnDestroy(): void {
+    console.log(`this is ngOnDestroy`)
   }
 
   form: FormGroup = new FormGroup({
@@ -24,6 +35,6 @@ export class LoginComponent {
   });
 
   public Login() {
-    this.router.navigateByUrl('/main')
+    this.router.navigateByUrl('/home')
   }
 }

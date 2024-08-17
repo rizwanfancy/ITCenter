@@ -1,2 +1,16 @@
-
 <h2>Home Screen</h2>
+firstName - {{firstName()}} & lastName - {{lastName()}}
+<br>
+fullName - {{fullName()}}
+<br>
+Students - @for (item of students(); track $index) {
+{{item}}
+}
+
+<br>
+Student Object -
+@for (s of student(); track $index) {
+Student Id: {{s.Id}} - Name is: {{s.Name}} - Class is: {{s.Class}}
+<br>
+}
+<input type="button" (click)="changeSignal()" value="Click Me to Change" />

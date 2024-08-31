@@ -35,6 +35,6 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
   });
 
   public Login() {
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/todo')
   }
 }

@@ -1,0 +1,29 @@
+.todo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.todo-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.todo-input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.task-name {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.task-name.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+mat-divider {
+  margin: 15px 0;
+}

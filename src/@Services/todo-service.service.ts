@@ -1,31 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TodoServiceService {
 
-  baseUrl = 'https://localhost:4500/'
-  controller = ''
+  baseUrl = 'https://localhost:7164/api'
+  controller = 'Todo'
 
   constructor(private http: HttpClient) { }
 
-  getTodos() {
-    this.http.get(`${this.baseUrl}/todos`).subscribe(x => {
-      return x
-    })
+  getTodos(): Observable<any> {
+    return this.http.get(`${this.getUrl()}`);
   }
 
-  putTodo(todoItem: any) {
-    this.http.put(`${this.baseUrl}`, todoItem)
+  putTodo(id:any, todoItem: any) {
+   return this.http.put(`${this.getUrl()}/${id}`, todoItem)
   }
 
   postTodo(todoItem: any) {
-    this.http.post(`${this.baseUrl}`, todoItem)
+    return this.http.post(`${this.getUrl()}`, todoItem)
   }
 
 
   deleteTodo(id: any) {
-    this.http.delete(`${this.baseUrl}/${this.controller}/delete/${id}`)
+   return this.http.delete(`${this.baseUrl}/${this.controller}/${id}`)
+  }
+
+  private getUrl() {
+    return `${this.baseUrl}/${this.controller}`
   }
 
 }
